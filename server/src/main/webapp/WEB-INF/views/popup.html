@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<div class="modal fade" id="myPopup" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-hidden="true">&times;</button>
+				<h4 class="modal-title" id="myModalLabel">ADVANCE SEARCH</h4>
+			</div>
+			<div class="modal-body">
+				<form class="form-horizontal" action="<c:url value="search/hs"/>"
+				method="get">
+				<fieldset>
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="q">QUERY:</label>
+						<div class="col-md-6">
+							<input id="q" name="q" type="text"
+								style="margin-left: -12px; width: 300px; margin-top: 10px"
+								value="${q}">
+						</div>
+					</div>
+					<!-- timerange -->
+					<div class="form-group">
+						<div class="col-md-4" style="float: left; margin-left: 17px">
+							<div class="input-group">
+								<span>FROM:</span> <input style="margin-left: 15px" type="text"
+									name="starttime" id="calendar">
+							</div>
+						</div>
+						<div class="col-md-4" style="float: left; margin-left: 60px">
+							<div class="input-group">
+								<span>TO:</span> <input style="margin-left: 15px" type="text"
+									name="endtime" id="calendar1">
+							</div>
+						</div>
+					</div>
+					<!-- title weight-->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="titleWeight">TITLE:</label>
+						<div class="bfbt "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/redPB.png"/>">
+						</div>
+						<input id="title_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="titleWeight" type="text" value="100">
+					</div>
+					<!-- title_py weight-->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="titlepyWeight">TITLEPY:</label>
+						<div class="bfbtpy "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/pinkPB.png"/>">
+						</div>
+						<input id="titlepy_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="titlepyWeight" type="text" value="0">
+					</div>
+					<!-- author weight-->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="authorWeight">AUTHOR:</label>
+						<div class="bfba "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/bluePB.png"/>">
+						</div>
+						<input id="author_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="authorWeight" type="text" value="40">
+					</div>
+					<!-- author_py weight-->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="authorpyWeight">AUTHOR:</label>
+						<div class="bfbapy "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/skyPB.png"/>">
+						</div>
+						<input id="authorpy_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="authorpyWeight" type="text" value="0">
+					</div>
+					<!-- description weight -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="descriptionWeight">DESCRIPT:</label>
+						<div class="bfbd "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/greenPB.png"/>">
+						</div>
+						<input id="description_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="descriptionWeight" type="text" value="40">
+					</div>
+					<!-- content weight -->
+					<div class="form-group">
+						<label class="col-md-2 control-label" for="contentWeight">CONTENT:</label>
+						<div class="bfbc "
+							style="width: 300px; height: 26px; float: left; padding-top: 7px;">
+							<img style="height: 26px; display: block;"
+								src="<c:url value="/img/yellowPB.png"/>">
+						</div>
+						<input id="content_w" class="num" maxNum="100"
+							style="float: left; border: 0px; width: 36px; margin-left: 50px; margin-top: 9px"
+							name="contentWeight" type="text" value="16">
+					</div>
+					<!-- sort -->
+					<div class="form-group">
+						<label class="col-md-2 control-label">SORT:</label> <select
+							name="sortField" class="col-md-3" style="margin-top: 10px">
+							<option value=""></option>
+							<option value="time">TIME</option>
+							<option value="author">AUTHOR</option>
+						</select>
+						<div class="col-md-6" style="margin-top: 10px">
+							<span class="col-md-2">ASC</span> <input class="col-md-1"
+								type="radio" name="order" value="asc" /> <span class="col-md-2">DESC</span>
+							<input class="col-md-1" type="radio" name="order" value="desc" />
+						</div>
+					</div>
+				</fieldset>
+				<!-- Button (Double) -->
+				<div class="form-group">
+					<label class="col-md-4 control-label" for="cancel"></label>
+					<div class="col-md-6">
+						<button type="button" type="button"
+							class="btn btn-default" data-dismiss="modal">CANCEL</button>
+						<input type="submit" class="btn btn-success" value="SEARCH">
+						<input type="hidden" name="start" value=1> <input
+							type="hidden" name="needfacet" value=1>
+					</div>
+				</div>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
